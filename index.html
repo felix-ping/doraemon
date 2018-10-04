@@ -5,11 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>css画哆啦A梦</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./css/default.css">
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
   <style id="styleTag"></style>
 </head>
 <body>
+  
   <div class="doraemon" id="doraemon">
+    <div class="speed">
+      <button data-id="60">慢速</button>
+      <button data-id="20">中速</button>
+      <button data-id="1">快速</button>
+      <button data-id="skip">跳过</button>
+    </div>
     <header>
       <div class="face">
         <div class="left_eye"></div>
@@ -40,6 +48,9 @@
       <div class="bell_circle"></div>
       <div class="bell_chink"></div>
     </div>
+  </div>
+  <div class="codeWrapper">
+    <pre class="code" id ="code"></pre>
   </div>
   <script src="./js/index.js"></script>
 </body>
