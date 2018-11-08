@@ -406,7 +406,8 @@
       
     },
     render(html){
-      $('#code').html(html)
+      
+      $('#code').html(Prism.highlight(html, Prism.languages.css))
       $('.codeWrapper').scrollTop($('.codeWrapper')[0].scrollHeight)  
       $('#styleTag').html(html)   
     }
