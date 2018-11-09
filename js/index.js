@@ -2,8 +2,18 @@
   let view={
     el:'#doraemon',
     template:`
+    body{
+      color: #fff;
+    }
+    body{
+      position:relative;
+    }
     .doraemon{
-      position: relative;
+      position: absolute;
+      top:100px;
+      left:140px;
+      width: 500px;
+      height: 500px;
     }
     
     header{
@@ -25,51 +35,44 @@
       border-radius: 50%;
     }
     
+    .left_eye,.right_eye{
+      position: absolute;
+      top: -32px;
+      width: 50px;
+      height: 60px;
+      background-color: #fff;
+      border-radius: 45%;
+      border:2px solid #000;
+      z-index: 1;
+    }
     .left_eye{
-      position: absolute;
-      top: -32px;
       left:55px;
-      width: 50px;
-      height: 60px;
-      background-color: #fff;
-      border-radius: 45%;
-      border:2px solid #000;
-      z-index: 1;
     }
-    
-    .left_eye:before{
-      content:"";
-      position: absolute;
-      top: 30px;
-      left:25px;
-      width: 20px;
-      height: 20px;
-      background-color: #000;
-      border-radius: 50%;
-    }
-    
     .right_eye{
-      position: absolute;
-      top: -32px;
       left:107px;
-      width: 50px;
-      height: 60px;
-      background-color: #fff;
-      border-radius: 45%;
-      border:2px solid #000;
-      z-index: 1;
     }
-    
-    .right_eye:before{
+    .left_eye:before,.right_eye:before{
       content:"";
       position: absolute;
-      top: 30px;
-      left:5px;
+      top: 33px;
       width: 20px;
       height: 20px;
       background-color: #000;
-      border-radius: 50%;
+      border-radius: 50%;  
+      animation: move_eye 1s ease-in-out 3s infinite alternate;
+      
     }
+    @keyframes move_eye { 
+      50% { top:33px } 
+      100% { top:5px }  
+    }
+    .left_eye:before{
+      left:22px;
+    }
+    .right_eye:before{
+      left:4px;
+    }
+    
     .nose{
       position: absolute;
       width: 20px;
@@ -81,7 +84,6 @@
       border-radius: 50%;
       z-index: 1;
     }
-    
     .nose:before{
       content:"";
       position: absolute;
@@ -92,63 +94,48 @@
       border-radius: 50%;
       background-color: #fff;
       box-shadow: -3px 2px 5px 5px rgba(255,255,255,0.2) inset;
-    
     }
     
-    .left_whiskers{
+    .left_whiskers,.right_whiskers{
       position: absolute;
       top:70px;
-      left:20px;
       width: 50px;
       height: 2px;
       background-color: #000;
       z-index: 1;
     }
-    .left_whiskers:before{
+    .left_whiskers{
+        left:20px;
+    }
+    .right_whiskers{
+      left:146px;
+    }
+    .left_whiskers:before,.right_whiskers:before{
       content: "";
       position: absolute;
       top:-20px;
       width: 50px;
       height: 2px;
       background-color: #000;
+    }
+    .left_whiskers:before{
       transform:rotate(15deg);
     }
-    .left_whiskers:after{
+    .right_whiskers:before{
+      transform:rotate(-15deg);
+    }
+    .left_whiskers:after,.right_whiskers:after{
       content: "";
       position: absolute;
       top:20px;
       width: 50px;
       height: 2px;
       background-color: #000;
-      transform:rotate(-15deg);
     }
-    
-    .right_whiskers{
-      position: absolute;
-      top:70px;
-      /*right:20px;*/
-      left:146px;
-      width: 50px;
-      height: 2px;
-      background-color: #000;
-      z-index: 1;
-    }
-    .right_whiskers:before{
-      content: "";
-      position: absolute;
-      top:-20px;
-      width: 50px;
-      height: 2px;
-      background-color: #000;
+    .left_whiskers:after{
       transform:rotate(-15deg);
     }
     .right_whiskers:after{
-      content: "";
-      position: absolute;
-      top:20px;
-      width: 50px;
-      height: 2px;
-      background-color: #000;
       transform:rotate(15deg);
     }
     
@@ -171,14 +158,13 @@
       height: 80px;
       background-color: #fff;
     }
-    
     .mouth:after{
       content: "";
       position: absolute;
       top:-17px;
       left: 67px;
       width: 2px;
-      height: 97px;
+      height: 95px;
       background-color: #000;	
     }
     
@@ -192,35 +178,33 @@
       border-top-right-radius: 0;
       border-bottom-right-radius: 40px 280px;
       border-bottom-left-radius: 40px 280px;
-      border: 2px solid #000;
       background-color: #00A1FF;
       border-top: none;
     }
-    
     .body:before{
       content:"";
       position: absolute;
       width: 16px;
       height: 8px;
       border-radius: 10px 10px 0 0;
-      background-color: #eee;
+      background-color: rgb(18,24,33);
       top: 127px;
       border: 2px solid #000;
       left: 75px;
       border-bottom: none;
     }
-    
     .body:after{
       content:"";
       position: absolute;
       width: 166px;
       height: 15px;
       background-color:#00A1FF; 
-      top:36px;
-      left:0px;
+      top:30px;
+      left:0;
       border-left: 2px solid #000;
       border-right: 2px solid #000;
     }
+    
     .necklet{
       position: absolute;
       top: 207px;
@@ -245,7 +229,6 @@
       border-radius: 50%;
       z-index: 2;
     }
-    
     .bell_light{
       position: absolute;
       top: 4px;
@@ -255,18 +238,15 @@
       border-radius: 50%;
       background-color: #fff;
       box-shadow: -2px 3px 5px 5px rgba(255,255,255,0.6);
-    
     }
-    
     .bell_line{
       position: absolute;
       top: 8px;
       border-top: 2px solid #000;
       border-bottom: 2px solid #000;
-      width: 30px;
-      height: 2px;
+      width: 28px;
+      height: 6px;
     }
-    
     .bell_circle{
       position: absolute;
       top: 15px;
@@ -276,30 +256,30 @@
       border-radius: 50%;
       background-color: #000;
     }
-    
     .bell_chink{
       position: absolute;
       top: 23px;
       left: 14px;
       width: 2px;
-      height: 8px;
+      height: 5px;
       background-color: #000;
     }
-    
-    .left_arm{
+
+    .left_arm,.right_arm{
       position: absolute;
       width: 60px;
       height: 40px;
       border-top: 2px solid #000;
       border-bottom: 2px solid #000;
-      top:0px;
-      left:-60px;
+      top:-2px;
       background-color: #00A1FF;
-      transform:rotate(-30deg);
-      transform-origin:top right;
     }
-    
-    .left_hand{
+    .left_arm{
+      left:-60px;
+      transform:rotate(-30deg);
+      transform-origin:top right
+    }
+    .left_hand,.right_hand{
       position: absolute;
       width: 50px;
       height: 50px;
@@ -307,30 +287,16 @@
       border: 2px solid #000;
       border-radius: 50%;
       top: -7px;
+    }
+    .left_hand{
       left: -32px;
     }
-    
     .right_arm{
-      position: absolute;
-      width: 60px;
-      height: 40px;
-      border-top: 2px solid #000;
-      border-bottom: 2px solid #000;
-      top:0px;
       right:-60px;
-      background-color: #00A1FF;
       transform:rotate(30deg);
       transform-origin:top left;
     }
-    
     .right_hand{
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background-color: #fff;
-      border: 2px solid #000;
-      border-radius: 50%;
-      top: -7px;
       right: -32px;
     }
     
@@ -345,7 +311,6 @@
       top: -20px;
       z-index: 1;
     }
-    
     .clothes:before{
       content:"";
       position: absolute;
@@ -369,32 +334,27 @@
     .pocket:before{
       content: "";
       position: absolute;
-      width: 94px;
+      width: 90px;
       height: 39px;
       background-color: #fff;
       border-bottom: 2px solid #000;
       left: -2px;
     }
     
-    .left_foot{
-      position: absolute;
-      background-color: #fff;
+    .left_foot,.right_foot{
       width: 95px;
       height: 20px;
+      background-color: #fff;
+      position: absolute;
       top: 135px;
-      left:-15px;
       border: 2px solid #000;
+    }
+    .left_foot{
+      left:-15px;
       border-radius: 30px 20px 20px 10px;
     }
-    
     .right_foot{
-      position: absolute;
-      background-color: #fff;
-      width: 95px;
-      height: 20px;
-      top: 135px;
       right:-15px;
-      border: 2px solid #000;
       border-radius: 20px 30px 10px 20px ;
     }
     
