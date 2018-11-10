@@ -379,3 +379,31 @@ header{
 .token.property{
     color:black;
 } */
+
+
+button {
+  outline: none;
+  margin: 0;
+  border: 0;
+  border-radius: .25em;
+  background: #e0e0e0;
+  cursor: pointer;
+  padding: .4em .8em;
+  text-rendering: optimizeLegibility;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 300;
+  color: inherit;
+  box-shadow: 0 .2em #888;
+  transform: translateY(-.2em)
+}
+
+button:hover {
+  background: #e6e6e6
+}
+
+button:active {
+  box-shadow: none;
+  background: #e0e0e0;
+  transform: translateY(0)
+}
