@@ -1,23 +1,361 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    display: flex;
-    flex-wrap: nowrap;
-    height: 100vh;
+*{margin: 0;padding: 0;}
+*{box-sizing: border-box;}
+body{
     position: relative;
+}
+.token.selector{
+    color: black;
+}
+.token.property{
+    color: black;
+}
+.token.function{
+    
+}
+#codeWrapper{
+    width: 50%;
+    height: 85vh;
+    position: absolute; 
+    left: 0;
+    top: 0;  
+    padding: .5em;
+    margin: .5em;
+    overflow: auto;
+}
+#code{
+    width: 100%;
+}
+#paper{
+    background: rgb(223, 30, 30); 
+    padding: 16px;
+    height: 50vh;
+    position: fixed; 
+    width: 40%;
+    right: 0;
+    top: 0;
+    overflow: auto;
+}
+#paper > .content{
+    width: 100%;
+    height: 100%;
+    padding-left: 16px;
+    color: white;
+}
+@keyframes breath{
+    30%{
+        box-shadow: 0 0 10px rgba(0,0,0,1)
+    }
+    100%{
+        box-shadow: 0 0 10px rgba(0,0,0,0.2)
+    }
 }
 .doraemon {
     position: relative;
-    width: 60%;
+    top:100px;
+    left:140px;
+    width: 500px;
+    height: 500px;
+
+}
+header{
+    width: 240px;
+    height: 240px;
+    border-radius: 48% 48% 50% 50%;
+}
+.face{
+    position: absolute;
+    left:10px;
+    top:53px;
+    width: 216px;
+    height: 176px;
+    border-radius: 50%;
 }
 .codeWrapper {
     width: 35%;
     flex-grow: 1;
     overflow: hidden;
 }
+header{
+    position: absolute;
+} 
+.left_eye,.right_eye{
+    position: absolute;
+    top: -32px;
+    width: 50px;
+    height: 60px;
+    border-radius: 45%;
+    z-index: 1;
+}
+.left_eye{
+    left:55px;
+  }
+  .right_eye{
+    left:107px;
+  }
+.left_eye:before,.right_eye:before{
+	content:"";
+	position: absolute;
+	top: 30px;
+	width: 20px;
+	height: 20px;
+    border-radius: 50%;
+    animation: move_eye 1s ease-in-out 3s infinite alternate;
+}
+.left_eye:before{
+	left:25px;
+}
+.right_eye:before{
+	left:5px;
+}
+  @keyframes move_eye { 
+    50% { top:33px } 
+    100% { top:5px }  
+  }
+  
+  .nose{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:19px;
+    left:96px;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  .nose:before{
+    content:"";
+    position: absolute;
+    top: 5px;
+    right:0px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+  
+  .left_whiskers,.right_whiskers{
+    width: 50px;
+    height: 2px;
+    position: absolute;
+    top:70px;
+    z-index: 1;
+  }
+  .left_whiskers{
+      left:20px;
+  }
+  .right_whiskers{
+    left:146px;
+  }
+  .left_whiskers:before,.right_whiskers:before{ 
+    width: 50px;
+    height: 2px;
+    content: "";
+    position: absolute;
+    top:-20px;
+  }
+  .left_whiskers:before{
+    transform:rotate(15deg);
+  }
+  .right_whiskers:before{
+    transform:rotate(-15deg);
+  }
+  .left_whiskers:after,.right_whiskers:after{
+    width: 50px;
+    height: 2px;
+    content: "";
+    position: absolute;
+    top:20px;
+  }
+  .left_whiskers:after{
+    transform:rotate(-15deg);
+  }
+  .right_whiskers:after{
+    transform:rotate(15deg);
+  }
+  
+  .mouth{
+    width: 140px;
+    height: 80px;
+    position: absolute;
+    top: 55px;
+    left: 38px;
+    z-index: 0;
+  }
+  .mouth:before{
+    width: 144px;
+    height: 80px;
+    content: "";
+    position: absolute;
+    top:-31px;
+    left: -2px;
+  }
+  .mouth:after{
+    width: 2px;
+    height: 95px;
+    content: "";
+    position: absolute;
+    top:-17px;
+    left: 67px;	
+  }
+  
+  .body{
+    width: 170px;
+    height: 135px;
+    position: absolute;
+    top: 223px;
+    left: 36px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 40px 280px;
+    border-bottom-left-radius: 40px 280px;
+    border-top: none;
+  }
+  .body:before{
+    width: 16px;
+    height: 8px;
+    content:"";
+    position: absolute;
+    top: 127px;
+    left: 75px;
+    border-bottom: none;
+  }
+  .body:after{
+    width: 166px;
+    height: 15px;
+    content:"";
+    position: absolute;
+    top:30px;
+    left:0;;
+  }
+  
+  .necklet{
+    width: 180px;
+    height: 16px;
+    position: absolute;
+    top: 207px;
+    left:30px;
+    border-radius: 8px;
+    z-index: 2;
+  }
+  
+  .bell{
+    width: 30px;
+    height: 30px;
+    content:"";
+    position: absolute;
+    left:105px;
+    top:215px;
+    z-index: 2;
+    border-radius: 50%;
+  }
+  .bell_light{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 4px;
+    left: 17px;;
+    border-radius: 50%;
+  }
+  .bell_line{
+    position: absolute;
+    top: 8px;
+    width: 28px;
+    height: 6px;
+  }
+  .bell_circle{
+    position: absolute;
+    top: 15px;
+    left: 11px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .bell_chink{
+    position: absolute;
+    top: 23px;
+    left: 14px;
+    width: 2px;
+    height: 5px;
+  }
+
+  .left_arm,.right_arm{
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    top:-2px;
+  }
+  .left_arm{
+    left:-60px;
+    transform:rotate(-30deg);
+    transform-origin:top right
+  }
+  .right_arm{
+    right:-60px;
+    transform:rotate(30deg);
+    transform-origin:top left;
+  }
+  .left_hand,.right_hand{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: -7px;
+  }
+  .left_hand{
+    left: -32px;
+  }
+  
+  .right_hand{
+    right: -32px;
+  }
+  
+  .clothes{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    left: 18px;
+    top: -20px;
+    z-index: 1;
+  }
+  .clothes:before{
+    content:"";
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    top: -2px;
+    left:5px;
+  }
+  
+  .pocket{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    left: 18px;
+    top: 18px;
+  }
+  .pocket:before{
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 39px;
+    left: -2px;
+  }
+  
+  .left_foot,.right_foot{
+    width: 95px;
+    height: 20px;
+    position: absolute;
+    top: 135px;
+  }
+  .left_foot{
+    left:-15px;
+    border-radius: 30px 20px 20px 10px;
+  }
+  .right_foot{
+    right:-15px;
+    border-radius: 20px 30px 10px 20px ;
+  }
+  
 .doraemon .speed {
     position: absolute;
     right: 10px;
