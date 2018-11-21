@@ -2,36 +2,57 @@
   let view={
     el:'#doraemon',
     template:`
+    /*面试官,您好!我要展示的是用CSS画哆啦A梦*/
+    /*下面是我的代码*/ 
     html{
-      background: #eee;
+      color: #fff;
       transition: all 1s;
     }
-    #code{
-      border: 1px solid #aaa;
-      padding: 16px;
+    #codeWrapper{
+      border: 1px solid rgb(8, 226, 241);
     }
-    /* 我需要一点代码高亮 */
-    .token.selector{ color: #690; }
-    .token.property{ color: #905; }
-    .token.function{
+    
+    /* 给代码换个颜色 */
+    .token.selector{ 
+      color: #39f; 
     }
-    /* 加一个呼吸效果 */
-    #code{
-      animation: breath 2s infinite alternate-reverse;
+    .token.property{ 
+      color: #fc3; 
     }
+    .token.function{ 
+      color: #f0c; 
+    }
+    .token.punctuation{
+      color: #aaa; 
+    }
+    .token.comment{
+      color: #0f3 
+    }
+    
     /* 加上3D效果 */
     html{
       perspective: 1000px;
     }
     #codeWrapper{
-      border: 1px solid;
       transform: rotateY(10deg) translateZ(-100px) ;
     }
     #paper > .content {
       display: block;
     }
 
-
+    /* 加一个呼吸效果 */
+    #code{
+      border: 1px solid #ccc;
+      padding: 16px;
+      animation: breath 2s infinite alternate-reverse;
+    }
+    /*我需要一张纸*/ 
+    #paper{
+      width: 45%;
+      height: 80vh;
+      background: rgba(255, 255, 255,0.2);
+    }
+    
     /* 现在我用CSS画一个哆啦A梦给你看 */
     header{
       background-color: #00A1FF;
